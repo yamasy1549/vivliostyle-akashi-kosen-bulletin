@@ -1,0 +1,41 @@
+
+@-epubx-page-master {
+  @-epubx-partition {
+    -epubx-enabled: -epubx-expr(page-number == 1);
+    content: "";
+  }
+  @-epubx-partition {
+    -epubx-enabled: -epubx-expr(page-number > 1 && page-number < 3);
+    content: counter(toc, lower-roman);
+    width: 8mm;
+    height: 8mm;
+    bottom: 20mm;
+    left: 101mm;
+    font-family: Mincho;
+    font-size: 11pt;
+    text-align: center;
+    color: #000;
+  }
+  @-epubx-partition {
+    -epubx-enabled: -epubx-expr(page-number > 2);
+    content: counter(p);
+    width: 8mm;
+    height: 8mm;
+    bottom: 20mm;
+    left: 101mm;
+    font-family: Mincho;
+    font-size: 11pt;
+    text-align: center;
+    color: #000;
+  }
+  @-epubx-partition chapter {
+    -epubx-flow-from: body;
+    margin-top: 25mm;
+    margin-bottom: 35mm;
+    margin-left: 25mm;
+    margin-right: 25mm;
+    width: 160mm;
+    height: 237mm;
+    overflow: visible;
+  }
+}

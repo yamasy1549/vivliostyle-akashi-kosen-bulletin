@@ -1,0 +1,45 @@
+/* ----------
+ * Frame
+ * ----------
+*/
+
+.frame
+  border: 1pt solid
+  padding: 10pt
+  margin: 10pt auto
+
+.tweet
+  border: 1pt solid
+  padding: 10pt
+  margin: $line-height auto
+  text-align: left
+
+  ol, ul
+    counter-reset: list
+    list-style: none
+    padding-left: 0
+
+    li
+      display: flex
+      counter-increment: list
+
+      &:before
+        content: "(" counter(list) ")"
+        margin-right: 0.5rem
+
+.eos1
+  background-color: #C8DCEE
+
+.eos2
+  background-color: #6AABD0
+
+.eos3
+  background-color: #1A68A8
+  color: white
+
+.eos4
+  background-color: #09295C
+  color: white
+
+.eosblank
+  border: 1px solid #09295C

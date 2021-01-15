@@ -1,0 +1,45 @@
+@page
+  size: $page-width $page-height
+  margin: $page-margin-top $page-margin-right $page-margin-bottom $page-margin-left
+
+@-epubx-page-template
+  @-epubx-page-master main
+    // 2段組
+    @-epubx-partition
+      -epubx-flow-from: body
+      -epubx-required: true
+      top: $page-margin-top
+      left: $page-margin-left
+      width: ($page-width - $page-margin-left - $page-margin-right)
+      height: ($page-height - $page-margin-top - $page-margin-bottom)
+      overflow: visible
+      // ✅本文は2段組
+      column-count: 2
+      // ✅段落の間は10mmの余白
+      column-gap: 10mm
+      // ✅最終ページは左右の段の長さを揃える
+      column-fill: balance
+
+    // 1段組
+    @-epubx-partition
+      -epubx-flow-from: master-single-flow
+      top: $page-margin-top
+      left: $page-margin-left
+      width: ($page-width - $page-margin-left - $page-margin-right)
+      overflow: visible
+      // ✅表題の部分のみ1段組
+      column-count: 1
+
+  // 1段組
+  .col1
+    -epubx-flow-into: master-single-flow
+
+  @-epubx-flow master-single-flow
+    -epubx-flow-consume: all
+
+.newpage
+  page-break-before: always
+
+@-adapt-footnote-area
+  width: 70%
+  padding-right: 30%

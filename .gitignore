@@ -1,0 +1,5 @@
+*.pdf
+dest/
+.vivliostyle/
+node_modules/
+assets/fonts/*

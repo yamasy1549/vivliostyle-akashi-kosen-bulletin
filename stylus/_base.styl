@@ -1,0 +1,278 @@
+//
+// 全体
+//
+*,
+*::before,
+*::after
+  box-sizing: border-box
+
+:root
+  font: $body-font
+  line-height: $body-line-height
+  color: $color-black
+
+//
+// 見出し
+//
+
+h1, h2, h3, h4
+  margin-block-start: 0
+  margin-block-end: 0
+  padding: 0
+  break-after: avoid
+  font-family: Kakugo
+
+// ✅章、説のタイトルはゴシックのボールド
+h2, h3, h4
+  font-family: Kakugo
+  font-weight: 700
+  font-size: $body-font-size
+
+  &::before
+    display: inline-block
+    // ✅全角（無理矢理）
+    transform: scale(1.4, 1)
+    transform-origin: left
+    font-weight: 500
+
+h1
+  page-break-before: always
+  font-weight: 500
+
+//
+// 段落
+//
+p
+  margin: 0
+  text-align: justify
+  // ✅1文字インデント
+  text-indent: 1em
+  // 行あたり文字数のための微調整
+  letter-spacing: -0.7pt
+
+section
+  // ✅章と章の間、節と節の間は1行の空白を入れる。項と項との間には空白行は入れない。
+  h2, h3
+    margin-top: $line-height
+
+  h2 + section:first-of-type > h3
+    margin-top: 0
+
+.right
+  text-align: right
+
+.left
+  text-align: left
+
+.center
+  text-align: center
+
+//
+// 打ち消し
+//
+.del
+  text-decoration: line-through
+
+//
+// 強調
+//
+strong
+  font-weight: 700
+
+p strong
+  font-family: Kakugo
+
+.mincho
+  font-family: Mincho
+  font-size: inherit
+  line-height: inherit
+
+.kakugo
+  font-family: Kakugo
+  font-size: inherit
+  line-height: inherit
+
+//
+// リンク
+//
+a, a:hover, a:focus, a:visited
+  color: inherit
+  text-decoration: none
+
+//
+// インラインソースコード
+//
+code, kbd, pre, samp
+  font: $code-font
+
+//
+// 脚注
+//
+span.footnote
+  float: footnote
+  // ✅フットノートは8ptの明朝体又はTimes New Romanのフォントを用い、本文の領域内に収める
+  font-family: Mincho
+  font-size: 8pt
+  font-weight: 300
+  text-indent: 0
+  text-align: left
+
+  // TODO
+  // ✅0.75ポイントの横線で区切る
+  // border-top: 0.75pt solid $color-black
+
+  &::footnote-call
+    vertical-align: 0.3em
+    font-size: ($body-font-size / 2)
+
+  &::footnote-marker
+    margin-right: 0.2rem
+
+  a
+    text-decoration: none
+
+
+//
+// 図
+//
+figure
+  page-break-inside: avoid
+  // ✅余白1行分
+  margin: $line-height auto
+  text-align: center
+
+img
+  max-width: 100%
+
+figure
+  figcaption, .figcaption,
+  caption, .caption
+    // ✅説明はゴシック
+    font-family: Kakugo
+    font-weight: 300
+
+//
+// 表
+//
+table
+  display: inline-block
+  border-collapse: collapse
+  font-size: $body-font-size
+
+  tr
+    &:first-of-type
+      border-top: 2px solid
+    &:last-of-type
+      border-bottom: 2px solid
+    td
+      text-align: right
+      font: $math-font
+    td.left,
+    td.center,
+    td:first-child
+      text-align: left
+      font: $body-font
+      line-height: $body-line-height
+    td.center
+      text-align: center
+    td.right
+      text-align: right
+
+  tr.header,
+    th, td
+      text-align: center
+      font-family: Kakugo
+      font-weight: 700
+
+  tr.footer
+    th, td
+      font-family: Kakugo
+      font-weight: 700
+
+  th, td
+    border-bottom: 1px solid
+    padding-right: 12px
+    vertical-align: middle
+
+    &:first-child
+      padding-left: 12px
+
+table.nostyle
+  tr
+    border-top: 0
+    border-bottom: 0
+
+//
+// 下線
+//
+.underline
+  display: inline-block
+  border-bottom: 1px solid
+
+//
+// 引用
+//
+blockquote
+  font-style: oblique
+  border-left: 4px solid
+  opacity: 0.5
+  padding-left: 1rem
+
+//
+// 箇条書き
+//
+ol, ul
+  padding-left: 3rem
+
+p + ol,
+p + ul
+  margin: 0.2rem 0
+
+ol.number
+  li
+    display: flex
+    list-style-type: none
+    list-style-position: inside
+
+    &:before
+      display: marker
+      margin-right: 0.5rem
+
+ol.nostyle,
+ul.nostyle
+  list-style: none
+
+//
+// 参考文献
+//
+ol.reference
+  padding-left: 0
+
+  li
+    display: flex
+    list-style-type: none
+    list-style-position: inside
+
+    &:before
+      display: marker
+      margin-right: 0.5rem
+
+
+//
+// カウントキャンセル
+//
+.nocounter
+  &::before
+    content: ""
+    margin-right: 0
+
+  > h2, h3, h4
+    &::before
+      content: ""
+      margin-right: 0
+
+//
+// 数式
+//
+p[data-math-typeset=true] text
+  font-family: Mincho

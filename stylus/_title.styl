@@ -1,0 +1,80 @@
+// 表題
+.title
+  line-height: 1.2
+
+  // ✅表題の部分のみ左右の余白を30mm
+  margin: 0 (30mm - $page-margin-left)
+  // ✅表題の部分のみセンタリング
+  text-align: center
+  // ✅ゴシック
+  font-family: Kakugo
+
+  .title_ja
+    // ✅日本語タイトルは16pt
+    font-size: 16pt
+    // ✅3行余白
+    margin: ($line-height * 3) auto auto
+
+  .author
+    // ✅1行余白
+    margin: $line-height auto auto
+    // ✅明朝体
+    font-family: Mincho
+
+  .title_en
+    // ✅英語タイトルは12pt
+    font-size: 12pt
+    // ✅1行余白
+    margin: $line-height auto auto
+    // ✅Times New Roman
+    font-family: Mincho
+
+// アブストラクト
+.abstract
+  h2
+    font-family: Mincho
+    font-weight: 700
+    font-size: $body-font-size
+    text-align: center
+    // ✅1行余白
+    margin: $line-height auto auto
+
+  .text
+    // ✅5文字字下げ
+    text-indent: 2.5rem
+    text-align: justify
+    text-justify: inter-word
+    // 調整用
+    letter-spacing: -0.4pt
+    // ✅1行余白
+    margin: $line-height 10mm auto
+
+// キーワード
+.keywords
+  margin: 0 10mm
+
+  h2
+    font-family: Mincho
+    font-weight: 700
+    font-size: $body-font-size
+    display: inline-block
+    // ✅1行余白
+    margin: $line-height auto auto
+    // ✅ボールド
+    font-weight: 700
+
+  .content
+    padding: 0
+    display: inline-flex
+    list-style: none
+    // ✅3行余白
+    margin: auto auto ($line-height * 3)
+
+    li
+      &::before
+        // ✅カンマで区切って並べる
+        content: ", "
+
+      &:first-of-type
+        &::before
+          content: ": "
