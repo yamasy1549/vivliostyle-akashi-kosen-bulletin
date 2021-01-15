@@ -37,9 +37,12 @@
   @-epubx-flow master-single-flow
     -epubx-flow-consume: all
 
+// footnote
+@-adapt-footnote-area ::before
+  // ✅0.75ポイントの横線で区切る
+  -adapt-border-before-width: 0.75pt
+  -adapt-margin-start: 0
+  -adapt-margin-end: (0.5 * ($page-width - $page-margin-left - $page-margin-right) + 5mm)
+
 .newpage
   page-break-before: always
-
-@-adapt-footnote-area
-  width: 70%
-  padding-right: 30%

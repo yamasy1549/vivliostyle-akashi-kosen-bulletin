@@ -418,12 +418,13 @@ template {
     -epubx-flow-consume: all;
   }
 }
+@-adapt-footnote-area ::before {
+  -adapt-border-before-width: 0.75pt;
+  -adapt-margin-start: 0;
+  -adapt-margin-end: 90mm;
+}
 .newpage {
   page-break-before: always;
-}
-@-adapt-footnote-area {
-  width: 70%;
-  padding-right: 30%;
 }
 body {
   counter-reset: section table figure footnote list ref math;
