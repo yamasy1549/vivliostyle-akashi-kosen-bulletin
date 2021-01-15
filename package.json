@@ -1,7 +1,7 @@
 {
   "name": "vivliostyle-akashi-kosen-bulletin",
   "description": "明石高専の年報用スタイル（非公式）",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "yamasy1549 <sanae@yamasy.info>",
   "scripts": {
     "build": "vivliostyle build",
@@ -13,7 +13,7 @@
     "@vivliostyle/vfm": "1.0.0-alpha.11",
     "normalize.css": "^8.0.1"
   },
-  "license": "AGPL-3.0",
+  "license": "CC0-1.0",
   "devDependencies": {
     "babel-core": "^6.26.3",
     "babel-preset-es2015": "^6.24.1",
@@ -43,7 +43,6 @@
     "vivliostyle",
     "vivliostyle-theme"
   ],
-  "license": "CC0-1.0",
   "vivliostyle": {
     "theme": {
       "name": "Akashi Kosen Bulletin (unofficial)",
