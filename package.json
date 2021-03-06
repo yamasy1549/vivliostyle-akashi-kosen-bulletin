@@ -1,7 +1,7 @@
 {
   "name": "vivliostyle-akashi-kosen-bulletin",
   "description": "明石高専の年報用スタイル（非公式）",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "author": "yamasy1549 <sanae@yamasy.info>",
   "scripts": {
     "build": "vivliostyle build",
