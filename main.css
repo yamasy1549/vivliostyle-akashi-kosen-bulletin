@@ -413,6 +413,7 @@ template {
   }
   .col1 {
     -epubx-flow-into: master-single-flow;
+    break-before: page;
   }
   @-epubx-flow master-single-flow {
     -epubx-flow-consume: all;
@@ -618,6 +619,11 @@ p strong {
   font-size: inherit;
   line-height: inherit;
 }
+.math {
+  font-family: Math;
+  font-size: inherit;
+  line-height: inherit;
+}
 a,
 a:hover,
 a:focus,
@@ -641,7 +647,7 @@ span.footnote {
 }
 span.footnote::footnote-call {
   vertical-align: 0.3em;
-  font-size: 5pt;
+  font-size: 7pt;
 }
 span.footnote::footnote-marker {
   margin-right: 0.2rem;
@@ -677,7 +683,7 @@ table tr:last-of-type {
 }
 table tr td {
   text-align: right;
-  font: 10pt Math, serif;
+  font-family: Math;
 }
 table tr td.left,
 table tr td.center,
@@ -751,6 +757,7 @@ ul.nostyle {
 }
 ol.reference {
   padding-left: 0;
+  word-break: break-all;
 }
 ol.reference li {
   display: flex;
@@ -760,6 +767,7 @@ ol.reference li {
 ol.reference li:before {
   display: marker;
   margin-right: 0.5rem;
+  min-width: 1.5rem;
 }
 .nocounter::before {
   content: "";

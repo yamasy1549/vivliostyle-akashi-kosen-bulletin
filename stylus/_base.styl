@@ -92,6 +92,11 @@ p strong
   font-size: inherit
   line-height: inherit
 
+.math
+  font-family: Math
+  font-size: inherit
+  line-height: inherit
+
 //
 // リンク
 //
@@ -119,7 +124,7 @@ span.footnote
 
   &::footnote-call
     vertical-align: 0.3em
-    font-size: ($body-font-size / 2)
+    font-size: $body-font-size * 0.7
 
   &::footnote-marker
     margin-right: 0.2rem
@@ -162,7 +167,7 @@ table
       border-bottom: 2px solid
     td
       text-align: right
-      font: $math-font
+      font-family: Math
     td.left,
     td.center,
     td:first-child
@@ -243,6 +248,7 @@ ul.nostyle
 //
 ol.reference
   padding-left: 0
+  word-break: break-all
 
   li
     display: flex
@@ -252,6 +258,7 @@ ol.reference
     &:before
       display: marker
       margin-right: 0.5rem
+      min-width: 1.5rem
 
 
 //
